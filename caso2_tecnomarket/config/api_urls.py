@@ -3,6 +3,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 
 from carrito.views import CarritoViewSet
+from config import documentacion
 from ordenes.views import OrdenViewSet
 from productos.views import ProductoViewSet
 from resenas.views import ResenaViewSet

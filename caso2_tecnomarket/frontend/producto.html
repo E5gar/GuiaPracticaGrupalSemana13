@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="">
+<title>Producto | TecnoMarket</title>
+<link rel="stylesheet" href="../../compartido/css/base.css">
+<link rel="stylesheet" href="css/tecnomarket.css">
+<script src="../../compartido/js/tema.js"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+<header class="cabecera" id="cabecera"></header>
+<main>
+<div class="contenedor seccion pila pila--grande">
+<nav class="migas"><a href="index.html">Inicio</a><span>/</span><a href="catalogo.html">Catalogo</a></nav>
+<div id="detalle"><span class="cargando"></span></div>
+<section class="pila">
+<h3>Opiniones</h3>
+<div class="pila" id="resenas"></div>
+<form class="pila tm-formulario" id="form-resena">
+<h4>Escribe una opinion</h4>
+<label class="campo"><span class="campo__etiqueta">Calificacion</span><select class="campo__control" name="calificacion"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+<label class="campo"><span class="campo__etiqueta">Titulo</span><input class="campo__control" name="titulo" required></label>
+<label class="campo"><span class="campo__etiqueta">Comentario</span><textarea class="campo__control" name="comentario" required></textarea></label>
+<button class="boton" type="submit">Publicar</button>
+</form>
+</section>
+</div>
+</main>
+<footer class="pie">
+<div class="contenedor pie__legal">
+<span>TecnoMarket. Desarrollo de Aplicaciones Web IS093A</span>
+<span class="fila"><img class="tm-logo-pie" src="../../compartido/img/icon-uncp.png" alt="Lorem ipsum dolor"><img class="tm-logo-pie" src="../../compartido/img/icon-fis.png" alt="Lorem ipsum dolor"></span>
+</div>
+</footer>
+<script src="js/api.js"></script>
+<script src="js/producto.js"></script>
+</body>
+</html>

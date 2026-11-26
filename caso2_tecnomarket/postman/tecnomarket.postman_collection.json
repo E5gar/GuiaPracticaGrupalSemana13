@@ -1,0 +1,68 @@
+{
+  "info": {
+    "name": "TecnoMarket API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base", "value": "http://127.0.0.1:8001/api" },
+    { "key": "token", "value": "" },
+    { "key": "producto", "value": "" }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "Authorization" },
+      { "key": "value", "value": "Token {{token}}" },
+      { "key": "in", "value": "header" }
+    ]
+  },
+  "item": [
+    {
+      "name": "1 Login",
+      "event": [{ "listen": "test", "script": { "exec": ["pm.collectionVariables.set('token', pm.response.json().token);"] } }],
+      "request": {
+        "auth": { "type": "noauth" },
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"username\": \"cliente1\", \"password\": \"Tecno2026*\"}" },
+        "url": "{{base}}/auth/token/"
+      }
+    },
+    {
+      "name": "2 Productos con filtros",
+      "event": [{ "listen": "test", "script": { "exec": ["pm.collectionVariables.set('producto', pm.response.json().results[0].id);"] } }],
+      "request": { "method": "GET", "url": "{{base}}/productos/?disponible=true&ordering=-precio" }
+    },
+    { "name": "3 Detalle de producto", "request": { "method": "GET", "url": "{{base}}/productos/{{producto}}/" } },
+    {
+      "name": "4 Agregar al carrito",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"producto_id\": {{producto}}, \"cantidad\": 1, \"cupon\": \"CYBER20\"}" },
+        "url": "{{base}}/carrito/agregar/"
+      }
+    },
+    { "name": "5 Ver carrito", "request": { "method": "GET", "url": "{{base}}/carrito/" } },
+    {
+      "name": "6 Checkout",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"direccion_envio\": \"Av. Giraldez 450, Huancayo\", \"metodo_pago\": \"culqi\"}" },
+        "url": "{{base}}/carrito/checkout/"
+      }
+    },
+    { "name": "7 Mis ordenes", "request": { "method": "GET", "url": "{{base}}/ordenes/mis-ordenes/" } },
+    { "name": "8 Resenas de un producto", "request": { "method": "GET", "url": "{{base}}/productos/{{producto}}/rese\u00f1as/" } },
+    {
+      "name": "9 Crear producto sin permiso",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{}" },
+        "url": "{{base}}/productos/"
+      }
+    }
+  ]
+}
