@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="">
+<title>Catalogo | TecnoMarket</title>
+<link rel="stylesheet" href="../../compartido/css/base.css">
+<link rel="stylesheet" href="css/tecnomarket.css">
+<script src="../../compartido/js/tema.js"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+<header class="cabecera" id="cabecera"></header>
+<main>
+<div class="contenedor seccion pila">
+<div class="encabezado-seccion"><h2>Catalogo</h2><span class="texto-apagado" id="total"></span></div>
+<form class="barra-filtros" id="filtros">
+<label class="campo"><span class="campo__etiqueta">Buscar</span><input class="campo__control" name="search" placeholder="Nombre o marca"></label>
+<label class="campo"><span class="campo__etiqueta">Categoria</span><select class="campo__control" name="categoria"><option value="">Todas</option><option>Laptops</option><option>Smartphones</option><option>Componentes</option><option>Accesorios</option></select></label>
+<label class="campo"><span class="campo__etiqueta">Marca</span><input class="campo__control" name="marca" placeholder="Dell"></label>
+<label class="campo"><span class="campo__etiqueta">Precio minimo</span><input class="campo__control" name="precio_min" type="number" min="0"></label>
+<label class="campo"><span class="campo__etiqueta">Precio maximo</span><input class="campo__control" name="precio_max" type="number" min="0"></label>
+<label class="campo"><span class="campo__etiqueta">Orden</span><select class="campo__control" name="ordering"><option value="">Recientes</option><option value="precio">Menor precio</option><option value="-precio">Mayor precio</option><option value="-rating_promedio">Mejor valorados</option></select></label>
+<label class="marca-check"><input type="checkbox" name="disponible" value="true">Con stock</label>
+<button class="boton boton--solido" type="submit"><i data-lucide="search"></i>Filtrar</button>
+<button class="boton boton--texto" type="reset">Limpiar</button>
+</form>
+<div class="rejilla rejilla--4" id="productos"></div>
+<nav class="paginacion" id="paginacion"></nav>
+</div>
+</main>
+<footer class="pie">
+<div class="contenedor pie__legal">
+<span>TecnoMarket. Desarrollo de Aplicaciones Web IS093A</span>
+<span class="fila"><img class="tm-logo-pie" src="../../compartido/img/icon-uncp.png" alt="Lorem ipsum dolor"><img class="tm-logo-pie" src="../../compartido/img/icon-fis.png" alt="Lorem ipsum dolor"></span>
+</div>
+</footer>
+<script src="js/api.js"></script>
+<script src="js/catalogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="">
+<title>Carrito | TecnoMarket</title>
+<link rel="stylesheet" href="../../compartido/css/base.css">
+<link rel="stylesheet" href="css/tecnomarket.css">
+<script src="../../compartido/js/tema.js"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+<header class="cabecera" id="cabecera"></header>
+<main>
+<div class="contenedor seccion pila">
+<div class="encabezado-seccion"><h2>Carrito</h2></div>
+<div class="tm-compra">
+<div class="pila" id="items"></div>
+<aside class="pila">
+<div class="dato" id="resumen"></div>
+<form class="pila" id="form-pago">
+<label class="campo"><span class="campo__etiqueta">Direccion de envio</span><input class="campo__control" name="direccion_envio" required></label>
+<label class="campo"><span class="campo__etiqueta">Metodo de pago</span><select class="campo__control" name="metodo_pago"><option value="culqi">Culqi</option><option value="mercadopago">Mercado Pago</option><option value="niubiz">Niubiz</option></select></label>
+<button class="boton boton--acento boton--ancho" type="submit"><i data-lucide="credit-card"></i>Pagar</button>
+<button class="boton boton--peligro boton--ancho" type="button" id="vaciar">Vaciar carrito</button>
+</form>
+</aside>
+</div>
+</div>
+</main>
+<footer class="pie">
+<div class="contenedor pie__legal">
+<span>TecnoMarket. Desarrollo de Aplicaciones Web IS093A</span>
+<span class="fila"><img class="tm-logo-pie" src="../../compartido/img/icon-uncp.png" alt="Lorem ipsum dolor"><img class="tm-logo-pie" src="../../compartido/img/icon-fis.png" alt="Lorem ipsum dolor"></span>
+</div>
+</footer>
+<script src="js/api.js"></script>
+<script src="js/carrito.js"></script>
+</body>
+</html>

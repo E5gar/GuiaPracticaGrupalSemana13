@@ -1,0 +1,47 @@
+.tm-logo-pie {
+  height: 32px;
+  width: auto;
+}
+.tm-portada {
+  aspect-ratio: 4 / 3;
+}
+.tm-formulario {
+  max-width: 480px;
+}
+.tm-compra,
+.tm-detalle {
+  display: grid;
+  gap: var(--e-6);
+  align-items: start;
+}
+@media (min-width: 1000px) {
+  .tm-compra { grid-template-columns: 1fr 340px; }
+  .tm-detalle { grid-template-columns: 1fr 1fr; }
+}
+.tm-foto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--arena);
+}
+.tm-miniaturas img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  cursor: pointer;
+  border: var(--fino) solid var(--linea);
+}
+.tm-cantidad {
+  width: 72px;
+}
+.tm-bloque {
+  padding: var(--e-4);
+  border: var(--fino) solid var(--linea);
+  background: var(--superficie);
+}
+.tm-ancho {
+  grid-column: 1 / -1;
+}
+@media (min-width: 1000px) {
+  .cabecera .menu-boton { display: none; }
+}
