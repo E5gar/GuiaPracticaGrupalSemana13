@@ -1,0 +1,96 @@
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --superficie: #ffffff;
+  --arena: #ebe8e1;
+  --crema: #f0e9d7;
+  --tinta: #272522;
+  --tinta-inversa: #ffffff;
+  --apagado: #6b6a68;
+  --linea: #c6c7c6;
+  --linea-fuerte: #272522;
+  --acento: #c0392b;
+  --acento-tinta: #ffffff;
+  --ok: #2f6b4f;
+  --alerta: #8f6410;
+  --error: #c0392b;
+  --info: #2f5d7c;
+  --velo: rgba(39, 37, 34, 0.55);
+  --sombra-flotante: 0 12px 32px rgba(39, 37, 34, 0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    color-scheme: dark;
+    --bg: #1a1917;
+    --superficie: #232220;
+    --arena: #2c2a27;
+    --crema: #36312a;
+    --tinta: #f2eee6;
+    --tinta-inversa: #1a1917;
+    --apagado: #a8a6a1;
+    --linea: #3d3b37;
+    --linea-fuerte: #f2eee6;
+    --acento: #e2705f;
+    --acento-tinta: #1a1917;
+    --ok: #6fbf97;
+    --alerta: #d9a845;
+    --error: #e2705f;
+    --info: #7ab0d4;
+    --velo: rgba(0, 0, 0, 0.7);
+    --sombra-flotante: 0 12px 32px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root[data-tema="oscuro"] {
+  color-scheme: dark;
+  --bg: #1a1917;
+  --superficie: #232220;
+  --arena: #2c2a27;
+  --crema: #36312a;
+  --tinta: #f2eee6;
+  --tinta-inversa: #1a1917;
+  --apagado: #a8a6a1;
+  --linea: #3d3b37;
+  --linea-fuerte: #f2eee6;
+  --acento: #e2705f;
+  --acento-tinta: #1a1917;
+  --ok: #6fbf97;
+  --alerta: #d9a845;
+  --error: #e2705f;
+  --info: #7ab0d4;
+  --velo: rgba(0, 0, 0, 0.7);
+  --sombra-flotante: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+:root {
+  --fuente: "Neue Haas Grotesk", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --fuente-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --t-10: 0.625rem;
+  --t-12: 0.75rem;
+  --t-14: 0.875rem;
+  --t-16: 1rem;
+  --t-18: 1.125rem;
+  --t-24: 1.5rem;
+  --t-28: 1.75rem;
+  --t-40: 2.5rem;
+  --t-56: 3.5rem;
+
+  --e-1: 4px;
+  --e-2: 8px;
+  --e-3: 12px;
+  --e-4: 16px;
+  --e-5: 24px;
+  --e-6: 32px;
+  --e-7: 40px;
+  --e-8: 64px;
+  --e-9: 96px;
+
+  --fino: 0.8px;
+  --pastilla: 9999px;
+  --t-rapida: 0.15s cubic-bezier(0, 0, 0.2, 1);
+  --t-media: 0.2s cubic-bezier(0, 0, 0.2, 1);
+  --alto-cabecera: 72px;
+  --ancho-max: 1280px;
+}
