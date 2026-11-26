@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Mi cuenta · Biblioteca Central UNCP</title>
+  <link rel="stylesheet" href="../../compartido/css/base.css">
+  <link rel="stylesheet" href="css/biblioteca.css">
+  <script src="../../compartido/js/tema.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-pagina="perfil">
+  <div id="marco-anuncio"></div>
+  <div id="marco-cabecera"></div>
+
+  <main class="contenedor seccion pila pila--grande">
+    <nav class="migas" aria-label="Ruta">
+      <a href="index.html">Inicio</a>
+      <i data-lucide="chevron-right" class="icono--chico"></i>
+      <span aria-current="page">Mi cuenta</span>
+    </nav>
+
+    <h1>Mi cuenta</h1>
+
+    <div class="dos-columnas dos-columnas--lateral">
+      <aside class="carnet" id="carnet"></aside>
+
+      <div class="pila pila--grande">
+        <div class="datos-fila" id="datos-perfil"></div>
+
+        <section class="pila">
+          <h3>Historial de préstamos</h3>
+          <div class="tabla-envoltura" id="envoltura-historial">
+            <table class="tabla">
+              <thead>
+                <tr>
+                  <th>Libro</th><th>Prestado</th><th>Vence</th><th>Estado</th><th class="num">Multa</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-historial"></tbody>
+            </table>
+          </div>
+          <div class="vacio oculto" id="vacio-historial">
+            <i data-lucide="book-marked" class="icono--grande"></i>
+            <p>Todavía no registras préstamos.</p>
+          </div>
+        </section>
+
+        <section class="pila">
+          <h3>Datos de contacto</h3>
+          <form class="pila" id="form-contacto" novalidate>
+            <div class="campo">
+              <label class="campo__etiqueta" for="c-email">Correo</label>
+              <input class="campo__control" id="c-email" name="email" type="email">
+            </div>
+            <div class="campo">
+              <label class="campo__etiqueta" for="c-telefono">Teléfono</label>
+              <input class="campo__control" id="c-telefono" name="telefono" type="tel" maxlength="20">
+            </div>
+            <div class="alerta-caja alerta-caja--error oculto" id="error-contacto" role="alert"></div>
+            <div><button class="boton boton--solido" type="submit">Guardar cambios</button></div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div id="marco-pie"></div>
+
+  <script src="js/api.js" defer></script>
+  <script src="js/marco.js" defer></script>
+  <script src="js/perfil.js" defer></script>
+</body>
+</html>
