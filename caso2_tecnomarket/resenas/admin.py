@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Resena
+
+
+@admin.register(Resena)
+class ResenaAdmin(admin.ModelAdmin):
+    list_display = ('producto', 'usuario', 'calificacion', 'fecha_creacion')
+    list_filter = ('calificacion',)
