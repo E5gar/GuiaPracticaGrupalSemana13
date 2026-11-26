@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Préstamos · Biblioteca Central UNCP</title>
+  <link rel="stylesheet" href="../../compartido/css/base.css">
+  <link rel="stylesheet" href="css/biblioteca.css">
+  <script src="../../compartido/js/tema.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-pagina="prestamos">
+  <div id="marco-anuncio"></div>
+  <div id="marco-cabecera"></div>
+
+  <main class="contenedor seccion pila pila--grande">
+    <nav class="migas" aria-label="Ruta">
+      <a href="index.html">Inicio</a>
+      <i data-lucide="chevron-right" class="icono--chico"></i>
+      <span aria-current="page">Préstamos</span>
+    </nav>
+
+    <div class="encabezado-seccion">
+      <h1 id="titulo-prestamos">Mis préstamos</h1>
+      <button class="boton boton--solido oculto" type="button" id="abrir-registro" data-modal-abrir="modal-prestamo">
+        <i data-lucide="plus" class="icono--chico"></i>Registrar préstamo
+      </button>
+    </div>
+
+    <div class="datos-fila">
+      <div class="dato"><span class="dato__valor" id="dato-activos">-</span><span class="dato__nombre">Activos</span></div>
+      <div class="dato"><span class="dato__valor" id="dato-vencidos">-</span><span class="dato__nombre">Vencidos</span></div>
+      <div class="dato"><span class="dato__valor" id="dato-multa">-</span><span class="dato__nombre">Multa en esta vista</span></div>
+    </div>
+
+    <div class="pestanas" role="tablist">
+      <button class="pestanas__item" role="tab" type="button" data-pestana="todos" aria-selected="true">Todos</button>
+      <button class="pestanas__item" role="tab" type="button" data-pestana="activo" aria-selected="false">Activos</button>
+      <button class="pestanas__item" role="tab" type="button" data-pestana="vencido" aria-selected="false">Vencidos</button>
+      <button class="pestanas__item" role="tab" type="button" data-pestana="devuelto" aria-selected="false">Devueltos</button>
+    </div>
+
+    <div id="envoltura-tabla">
+      <div class="tabla-envoltura">
+        <table class="tabla">
+          <thead><tr id="cabecera-tabla"></tr></thead>
+          <tbody id="tabla-prestamos"></tbody>
+        </table>
+      </div>
+      <div class="pie-tabla">
+        <span class="texto-pequeno texto-apagado" id="info-paginas"></span>
+        <div class="fila">
+          <button class="boton boton--chico" type="button" id="pagina-anterior"><i data-lucide="chevron-left" class="icono--chico"></i>Anterior</button>
+          <button class="boton boton--chico" type="button" id="pagina-siguiente">Siguiente<i data-lucide="chevron-right" class="icono--chico"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="vacio oculto" id="vacio-prestamos">
+      <i data-lucide="inbox" class="icono--grande"></i>
+      <p>No hay préstamos en esta vista.</p>
+    </div>
+  </main>
+
+  <div class="modal" id="modal-prestamo" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-prestamo">
+    <div class="modal__fondo" data-modal-cerrar></div>
+    <div class="modal__panel">
+      <div class="modal__cabecera">
+        <h3 id="titulo-modal-prestamo">Registrar préstamo</h3>
+        <button class="boton-icono" type="button" data-modal-cerrar aria-label="Cerrar"><i data-lucide="x"></i></button>
+      </div>
+      <form class="pila" id="form-prestamo" novalidate>
+        <div class="campo">
+          <label class="campo__etiqueta" for="p-usuario">ID del usuario</label>
+          <input class="campo__control" id="p-usuario" name="usuario" type="number" min="1" required>
+          <span class="campo__ayuda">Lo encuentras en el perfil o en el listado de usuarios.</span>
+        </div>
+        <div class="campo">
+          <label class="campo__etiqueta" for="p-buscar">Buscar libro disponible</label>
+          <input class="campo__control" id="p-buscar" type="search" placeholder="Escribe parte del título">
+        </div>
+        <div class="campo">
+          <label class="campo__etiqueta" for="p-libro">Libro</label>
+          <select class="campo__control" id="p-libro" name="libro" required>
+            <option value="">Busca un título primero</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label class="campo__etiqueta" for="p-fecha">Fecha de devolución (opcional)</label>
+          <input class="campo__control" id="p-fecha" name="fecha" type="date">
+          <span class="campo__ayuda">Si la dejas vacía se asignan 14 días.</span>
+        </div>
+        <div class="alerta-caja alerta-caja--error oculto" id="error-prestamo" role="alert"></div>
+        <button class="boton boton--solido boton--ancho" type="submit">Registrar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="marco-pie"></div>
+
+  <script src="js/api.js" defer></script>
+  <script src="js/marco.js" defer></script>
+  <script src="js/prestamos.js" defer></script>
+</body>
+</html>
