@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Catálogo · Biblioteca Central UNCP</title>
+  <link rel="stylesheet" href="../../compartido/css/base.css">
+  <link rel="stylesheet" href="css/biblioteca.css">
+  <script src="../../compartido/js/tema.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-pagina="catalogo">
+  <div id="marco-anuncio"></div>
+  <div id="marco-cabecera"></div>
+
+  <main class="contenedor seccion pila pila--grande">
+    <nav class="migas" aria-label="Ruta">
+      <a href="index.html">Inicio</a>
+      <i data-lucide="chevron-right" class="icono--chico"></i>
+      <span aria-current="page">Catálogo</span>
+    </nav>
+
+    <div class="encabezado-seccion">
+      <h1>Catálogo</h1>
+      <p class="resultados__cuenta" id="cuenta-resultados"></p>
+    </div>
+
+    <form class="barra-filtros" id="filtros" role="search">
+      <div class="busqueda">
+        <i data-lucide="search" class="busqueda__icono icono--chico"></i>
+        <label class="solo-lectores" for="f-busqueda">Buscar</label>
+        <input class="busqueda__entrada" id="f-busqueda" type="search" placeholder="Título, autor o ISBN">
+      </div>
+      <div class="campo">
+        <label class="campo__etiqueta" for="f-categoria">Categoría</label>
+        <select class="campo__control" id="f-categoria">
+          <option value="">Todas</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label class="campo__etiqueta" for="f-anio">Año</label>
+        <select class="campo__control" id="f-anio">
+          <option value="">Cualquiera</option>
+          <option value="2020">2020 en adelante</option>
+          <option value="2010">2010 en adelante</option>
+          <option value="2000">2000 en adelante</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label class="campo__etiqueta" for="f-orden">Ordenar</label>
+        <select class="campo__control" id="f-orden">
+          <option value="título">Título A-Z</option>
+          <option value="-año">Más recientes</option>
+          <option value="año">Más antiguos</option>
+          <option value="-stock">Mayor stock</option>
+        </select>
+      </div>
+      <label class="marca-check">
+        <input type="checkbox" id="f-disponible">
+        Solo disponibles
+      </label>
+      <button class="boton boton--texto boton--chico" type="reset" id="limpiar">Limpiar</button>
+    </form>
+
+    <div class="rejilla rejilla--4" id="rejilla-libros"></div>
+
+    <div class="vacio oculto" id="vacio-libros">
+      <i data-lucide="book-x" class="icono--grande"></i>
+      <p>No encontramos libros con esos filtros.</p>
+    </div>
+
+    <nav class="paginacion" id="paginacion" aria-label="Paginación"></nav>
+  </main>
+
+  <div class="modal" id="modal-libro" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="detalle-titulo">
+    <div class="modal__fondo" data-modal-cerrar></div>
+    <div class="modal__panel modal__panel--ancha">
+      <div class="modal__cabecera">
+        <span class="campo__etiqueta">Ficha del libro</span>
+        <button class="boton-icono" type="button" data-modal-cerrar aria-label="Cerrar"><i data-lucide="x"></i></button>
+      </div>
+      <div id="detalle-contenido"></div>
+    </div>
+  </div>
+
+  <div id="marco-pie"></div>
+
+  <script src="js/api.js" defer></script>
+  <script src="js/marco.js" defer></script>
+  <script src="js/catalogo.js" defer></script>
+</body>
+</html>
