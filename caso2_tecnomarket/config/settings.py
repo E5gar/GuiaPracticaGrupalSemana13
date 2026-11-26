@@ -113,6 +113,7 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'TecnoMarket API',
     'DESCRIPTION': 'API REST de la plataforma de productos tecnologicos TecnoMarket Peru',
     'VERSION': '1.0.0',
+    'REDOC_DIST': 'https://cdn.jsdelivr.net/npm/redoc@2.5.0',
 }
 
 CORS_ALLOWED_ORIGINS = [
