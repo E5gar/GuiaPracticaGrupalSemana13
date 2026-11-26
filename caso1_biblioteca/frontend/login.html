@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Ingresar · Biblioteca Central UNCP</title>
+  <link rel="stylesheet" href="../../compartido/css/base.css">
+  <link rel="stylesheet" href="css/biblioteca.css">
+  <script src="../../compartido/js/tema.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-pagina="login">
+  <div id="marco-cabecera"></div>
+
+  <main class="autenticacion">
+    <div class="autenticacion__imagen">
+      <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80" alt="Lorem ipsum dolor">
+    </div>
+    <div class="autenticacion__panel">
+      <div class="pila pila--chica">
+        <p class="portada__kicker">Acceso</p>
+        <h1>Ingresa con tu cuenta</h1>
+        <p class="texto-apagado">Usa el usuario y la contraseña que te entregó la biblioteca para ver tus préstamos.</p>
+      </div>
+      <form class="pila" id="form-login" novalidate>
+        <div class="campo">
+          <label class="campo__etiqueta" for="l-usuario">Usuario</label>
+          <input class="campo__control" id="l-usuario" name="username" type="text" autocomplete="username" required>
+        </div>
+        <div class="campo">
+          <label class="campo__etiqueta" for="l-clave">Contraseña</label>
+          <div class="contrasena">
+            <input class="campo__control" id="l-clave" name="password" type="password" autocomplete="current-password" required>
+            <button type="button" id="ver-clave" aria-label="Mostrar contraseña"><i data-lucide="eye" class="icono--chico"></i></button>
+          </div>
+        </div>
+        <div class="alerta-caja alerta-caja--error oculto" id="error-login" role="alert"></div>
+        <button class="boton boton--solido boton--ancho" type="submit" id="enviar-login">Ingresar</button>
+      </form>
+      <a class="enlace-sutil texto-pequeno" href="catalogo.html">Seguir como invitado y consultar el catálogo</a>
+    </div>
+  </main>
+
+  <script src="js/api.js" defer></script>
+  <script src="js/marco.js" defer></script>
+  <script src="js/login.js" defer></script>
+</body>
+</html>

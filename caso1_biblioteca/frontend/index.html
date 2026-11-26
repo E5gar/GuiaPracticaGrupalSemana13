@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Biblioteca Central UNCP</title>
+  <link rel="stylesheet" href="../../compartido/css/base.css">
+  <link rel="stylesheet" href="css/biblioteca.css">
+  <script src="../../compartido/js/tema.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-pagina="inicio">
+  <div id="marco-anuncio"></div>
+  <div id="marco-cabecera"></div>
+
+  <main>
+    <section class="contenedor portada">
+      <div class="pila pila--grande">
+        <p class="portada__kicker">Biblioteca Central · UNCP</p>
+        <h1>Lo que buscas ya está en algún estante</h1>
+        <p class="portada__lema">Más de 50 000 libros y 200 revistas científicas, con un solo carnet para consultar el catálogo desde el campus virtual o desde tu celular.</p>
+        <form class="busqueda" action="catalogo.html" role="search">
+          <i data-lucide="search" class="busqueda__icono icono--chico"></i>
+          <label class="solo-lectores" for="busqueda-inicio">Buscar</label>
+          <input class="busqueda__entrada" id="busqueda-inicio" name="search" type="search" placeholder="Título, autor o ISBN">
+        </form>
+        <div class="portada__acciones">
+          <a class="boton boton--solido" href="catalogo.html"><i data-lucide="library" class="icono--chico"></i>Explorar catálogo</a>
+          <a class="boton" href="login.html"><i data-lucide="id-card" class="icono--chico"></i>Ingresar con mi carnet</a>
+        </div>
+      </div>
+      <div class="portada__imagen">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=80" alt="Lorem ipsum dolor">
+        <div class="portada__sello"><i data-lucide="book-open-check"></i><span>Préstamo hasta 14 días</span></div>
+      </div>
+    </section>
+
+    <section class="seccion seccion--arena">
+      <div class="contenedor cifras">
+        <div class="dato"><span class="dato__valor">50 000+</span><span class="dato__nombre">Libros en estantes</span></div>
+        <div class="dato"><span class="dato__valor">200</span><span class="dato__nombre">Revistas científicas</span></div>
+        <div class="dato"><span class="dato__valor">5 000</span><span class="dato__nombre">Usuarios activos</span></div>
+        <div class="dato"><span class="dato__valor">10 000</span><span class="dato__nombre">Consultas diarias</span></div>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <h2>Explora por estantes</h2>
+          <a class="enlace-sutil texto-pequeno" href="catalogo.html">Ver todo el catálogo</a>
+        </div>
+        <div class="estantes" id="lista-estantes"></div>
+      </div>
+    </section>
+
+    <section class="seccion seccion--crema">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <h2>Recién llegados</h2>
+          <a class="enlace-sutil texto-pequeno" href="catalogo.html?orden=reciente">Ver más</a>
+        </div>
+        <div class="rejilla rejilla--4" id="lista-novedades"></div>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="contenedor pila pila--grande">
+        <div class="encabezado-seccion">
+          <h2>Cómo pedir prestado</h2>
+        </div>
+        <div class="pasos">
+          <div class="paso">
+            <span class="paso__numero">01</span>
+            <h3>Busca y ubica</h3>
+            <p class="texto-apagado">Filtra por categoría o año y revisa en qué estante y piso está el ejemplar.</p>
+          </div>
+          <div class="paso">
+            <span class="paso__numero">02</span>
+            <h3>Acércate al mostrador</h3>
+            <p class="texto-apagado">El personal registra el préstamo con tu carnet. Puedes tener hasta 5 libros a la vez.</p>
+          </div>
+          <div class="paso">
+            <span class="paso__numero">03</span>
+            <h3>Devuelve a tiempo</h3>
+            <p class="texto-apagado">Tienes 14 días. Cada día de atraso genera una multa de S/ 2.00.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion--arena">
+      <div class="contenedor dos-columnas">
+        <div class="pila">
+          <p class="portada__kicker">Para desarrolladores</p>
+          <h2>El catálogo también habla con tus aplicaciones</h2>
+          <p class="texto-apagado">Campus virtual, apps móviles y gestores de referencias consumen la misma API REST, documentada con OpenAPI.</p>
+          <div class="fila">
+            <a class="boton boton--solido" href="http://127.0.0.1:8000/api/docs/" target="_blank" rel="noopener"><i data-lucide="file-json" class="icono--chico"></i>Swagger UI</a>
+            <a class="boton" href="http://127.0.0.1:8000/api/redoc/" target="_blank" rel="noopener">ReDoc</a>
+          </div>
+        </div>
+        <pre class="codigo">GET /api/libros/?categoria=ingenieria&amp;año__gte=2020&amp;disponible=true
+Accept: application/json
+
+{
+  "count": 14,
+  "next": "http://127.0.0.1:8000/api/libros/?page=2",
+  "results": [
+    {
+      "titulo": "Modern Operating Systems",
+      "disponible": true,
+      "ubicacion": "Estante B-17 · Piso 2"
+    }
+  ]
+}</pre>
+      </div>
+    </section>
+  </main>
+
+  <div id="marco-pie"></div>
+
+  <script src="js/api.js" defer></script>
+  <script src="js/marco.js" defer></script>
+  <script src="js/inicio.js" defer></script>
+</body>
+</html>
